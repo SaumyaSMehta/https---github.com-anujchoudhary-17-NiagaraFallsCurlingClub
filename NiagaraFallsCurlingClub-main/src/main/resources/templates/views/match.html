@@ -1,0 +1,27 @@
+
+<html>
+  <header>
+
+  </header>
+
+  <body>
+    <h1 style="text-align: center;">Matches</h1>
+    <br><br><br><br>
+    <div>
+      <label th:text="${user1Name}"/>
+      <div style="border: 2px solid black;width: 5%;height: 7%;"><label th:text="${user1Score}"/></div>
+      <div style="border: 2px solid black;width: 5%;height: 7%;"><label th:text="${user2Score}"/></div>
+      <label th:text="${user2Name}"/>
+    </div>
+    <br><br><br><br>
+    <h1 style="text-align: center;">Winner </h1><h1 style="text-align: center;" th:text="${winner}"/>
+    <div style="border: 2px solid black;width: auto;height: 10%;">
+      <table>
+        <tr><td th:each="round : ${listRound}" th:text="${round.roundNo}"/>
+        <tr><td th:each="round : ${listRound}" th:text="${round.user1Score}"/></tr>
+        <tr><td th:each="round : ${listRound}" th:text="${round.user2Score}"/></tr>
+      </table>
+    </div>
+  </body>
+
+</html>

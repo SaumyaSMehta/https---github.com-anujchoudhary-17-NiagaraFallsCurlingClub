@@ -1,0 +1,51 @@
+<html>
+<head>
+
+</head>
+<body>
+
+  <form action="" method="post">
+  <h1>Create Team</h1>
+  <div style="display: flex;">
+    <div style="border: 2px solid black;width: 100%;text-align: center;" >
+      <br>
+      <label>ENTER TEAM NAME</label>
+      <input type="text" name="teamName" placeholder="Enter team name"/>
+      <br><br>
+      <input type="submit" value="Add Team" />
+      <br><br>
+    </div>
+  </div>
+    
+  </form>
+<br>
+  <div style="border: 2px solid black;width: 100%;">
+    <form th:action="@{/saveTeam}" method="POST">
+
+     
+
+<!-- The value for `for=""` and `id=""` has to be same. -->
+
+      <div style="display: flex;">
+        <div style="float: left;width: 48%;">
+          <label for="items">Choose a team:</label>
+          <select id="items" th:field="*{teamSelect}"> 
+             <option th:each="team : ${teamList}" th:value="${team.teamId}" th:text="${team.teamName}"></option>
+           </select>
+        </div>
+      <div style="float: right;">
+        
+          <div th:each="user : ${userList}">
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="bike" th:text="${user.firstName}">
+          </div>
+      </div>
+      </div>
+
+    
+
+      <br>
+      <input type="submit" value="Save Team"/>
+    </form>
+  </div>
+</body>
+</html>
